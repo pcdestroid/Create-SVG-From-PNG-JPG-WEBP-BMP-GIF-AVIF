@@ -2,10 +2,12 @@
 const svgImage = document.createElementNS("http://www.w3.org/2000/svg", "image");
 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-const main = document.querySelector('.main')
-const imagemSVG = document.querySelector('.imagemSVG')
-const size = document.querySelector('.size')
-const sizeSVG = document.querySelector('.sizeSVG')
+const main = document.querySelector('.main');
+const imagemSVG = document.querySelector('.imagemSVG');
+const urlData = document.querySelector('.urlData');
+const size = document.querySelector('.size');
+const sizeSVG = document.querySelector('.sizeSVG');
+const btnCopyLink = document.querySelector('.copyLink')
 
 // Obtém o elemento de entrada de arquivo
 const inputFile = document.querySelector('.send');
@@ -34,6 +36,8 @@ inputFile.addEventListener('change', function (event) {
 });
 
 function createSVGFromJPG(filePath) {
+    btnCopyLink.innerHTML = 'Copy Link'
+
     // Cria um objeto Image
     const img = new Image();
     // Define o manipulador de eventos para quando a imagem for carregada
@@ -67,6 +71,11 @@ function createSVGFromJPG(filePath) {
 
                 // Adiciona o elemento SVG ao documento
                 imagemSVG.appendChild(svg);
+
+                let imageElement = document.querySelector('image')
+                let hrefValue = imageElement.getAttribute('href');
+                urlData.value = hrefValue
+
                 document.body.style.backgroundImage = `url('${filePath}')`
 
 
@@ -84,7 +93,7 @@ function createSVGFromJPG(filePath) {
 
 async function downloadSVG() {
     if (imagemSVG.innerHTML == '') {
-        size.innerHTML = 'Nenhum arquivo escolhido'
+        size.innerHTML = 'No file chosen'
     } else {
         // Converte o elemento SVG em uma string
         let svgString = new XMLSerializer().serializeToString(svg);
@@ -98,7 +107,6 @@ async function downloadSVG() {
         link.click();
     }
 }
-
 
 // Adicione manipuladores de eventos para dragover, dragenter e drop
 ['dragover', 'dragenter'].forEach(eventName => {
@@ -145,3 +153,12 @@ main.addEventListener('drop', e => {
     } catch (e) { }
 
 });
+
+function copyLink() {
+    if (imagemSVG.innerHTML == '') {
+        size.innerHTML = 'No links to be copied'
+    } else {
+        navigator.clipboard.writeText(urlData.value);
+        btnCopyLink.innerHTML = 'Copied link...'
+    }
+}

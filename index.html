@@ -19,10 +19,25 @@
             <label for="input-file" class="upload-button">Escolher Imagem</label>
             <input class="send" type="file" id="input-file" accept="image/*">
         </div>
-        <div class="imagemSVG"></div>
+
+        <div class="img">
+
+            <label class="label" for="">Foto</label>
+            <div class="imagemSVG"></div>
+
+            <label class="label" for="">Link</label>
+            <textarea class="urlData"></textarea>
+
+        </div>
+
+
         <div class="size"></div>
         <div class="sizeSVG"></div>
-        <button class="download" onclick="javascript:downloadSVG()">Download SVG</button>
+        <div class="buttons">
+            <button class="download" onclick="javascript:downloadSVG()">Download SVG</button>
+            <button class="copyLink" onclick="javascript:copyLink()">Copy Link</button>
+        </div>
+
     </div>
 
     <footer>

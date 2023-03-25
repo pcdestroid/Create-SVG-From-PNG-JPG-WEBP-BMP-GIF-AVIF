@@ -35,14 +35,13 @@ body::before {
     /* Cor semi-transparente para escurecer a imagem */
 }
 
-
 .main {
     z-index: 99;
     flex-direction: column;
     color: white;
     position: relative;
-    width: 40vw;
-    height: 700px;
+    width: 50vw;
+    height: 800px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
@@ -60,7 +59,7 @@ body::before {
 }
 
 h2 {
-    margin-top: 10px;
+    margin-top: 20px;
     z-index: 99;
 
 }
@@ -76,7 +75,13 @@ h2 {
     cursor: pointer;
 }
 
-.main .imagemSVG {
+.main .img {
+    display: flex;
+    margin: 5px;
+}
+
+.main .imagemSVG,
+.main .urlData {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,9 +90,24 @@ h2 {
     background-color: rgba(0, 0, 0, 0.500);
     border-radius: 15px;
     overflow: hidden;
+    margin: 5px;
 }
 
-svg {
+.main .urlData {
+    font-size: 1px;
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.500);
+    border: none;
+}
+
+.main .label {
+   
+    position: relative;
+    top: -20px;
+    left: 40px;
+}
+
+.imagemSVG svg {
     max-width: 100%;
     max-height: 100%;
 }
@@ -96,8 +116,8 @@ svg {
     margin-top: 10px;
 }
 
-.main .download {
-    margin: 20px;
+.main .download,
+.main .copyLink {
     background: transparent;
     color: white;
     padding: 10px;
@@ -107,13 +127,19 @@ svg {
     transform: scale(1);
     transition: transform 1s, height 1s ease;
     transition: all 0.5s;
+    display: inline-flex;
+    margin-right: 170px; /* Adiciona margem à direita no primeiro elemento */
+    margin-left: 190px; /* Adiciona margem à esquerda no segundo elemento */
+    
 
 }
 
-.main .download:hover {
+.main .download:hover,
+.main .copyLink:hover {
     background: white;
     color: black;
     transform: scale(1.05);
+    
 }
 
 .main .sizeSVG,
