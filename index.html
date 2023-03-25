@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Create SVG</title>
+</head>
+
+<body>
+
+    <div class="main">
+        <h2>Create SVG From PNG-JPG-WEBP-BMP-GIF-AVIF</h2>
+        <div class="drop-area">
+            <p>Arraste e solte a imagem ou clique para escolher.</p>
+            <input class="send" type="file" id="input-file" accept="image/*">
+            <label for="input-file" class="upload-button">Escolher Imagem</label>
+            <input class="send" type="file" id="input-file" accept="image/*">
+        </div>
+        <div class="imagemSVG"></div>
+        <div class="size"></div>
+        <div class="sizeSVG"></div>
+        <button class="download" onclick="javascript:downloadSVG()">Download SVG</button>
+    </div>
+
+    <footer>
+        <p>Copyright © 2023 por AlanFrancis. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+
+body {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgb(0, 8, 8);
+    background: url('background.svg') no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+/* Estilo do elemento filho */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+
+    /* Cor semi-transparente para escurecer a imagem */
+}
+
+
+.main {
+    z-index: 99;
+    flex-direction: column;
+    color: white;
+    position: relative;
+    width: 30vw;
+    height: 700px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(55px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform .5s, height .2s ease;
+    margin-top: 20px;
+    user-select: none;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.400);
+}
+
+h2 {
+    margin-top: 10px;
+    z-index: 99;
+
+}
+
+.main .send {
+    z-index: 99;
+    margin: 20px;
+    background: transparent;
+    color: white;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main .imagemSVG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 430px;
+    height: 430px;
+    background-color: rgba(0, 0, 0, 0.500);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.main .size {
+    margin-top: 10px;
+}
+
+.main .download {
+    margin: 20px;
+    background: transparent;
+    color: white;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 1s, height 1s ease;
+    transition: all 0.5s;
+
+}
+
+.main .download:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+.main .sizeSVG,
+.main .size {
+    font-size: 12px;
+}
+
+
+.drop-area {
+    margin: 20px;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+footer {
+    color: white;
+    position: fixed;
+    bottom: 0;
+    font-size: 0.8em;
+    z-index: 99;
+    padding: 10px 0 10px 0;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, .3);
+    user-select: none;
+
+}
+
+
+
+input[type="file"] {
+    display: none;
+    /* esconde o botão de upload padrão */
+}
+
+label.upload-button {
+    margin: 10px;
+    background: transparent;
+    color: white;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 1s, height 1s ease;
+    transition: all 0.5s;
+}
+
+/* esconda o botão de upload padrão */
+input[type="file"] {
+    display: none;
+}
+
+/* estilize o botão personalizado */
+label.upload-button {
+    display: inline-block;
+    padding: 10px;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+label.upload-button:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+}
