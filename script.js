@@ -71,7 +71,7 @@ function createSVGFromJPG(filePath) {
 
         let iw = img.width;
         let ih = img.height;
-        
+
         heightImg.value = (img.height * widthImg.value) / img.width
 
         if (widthImg.value * heightImg.value > 0) {
@@ -112,9 +112,7 @@ function createSVGFromJPG(filePath) {
                 let imageElement = document.querySelector('image')
                 let hrefValue = imageElement.getAttribute('href');
                 urlData.value = hrefValue
-
                 document.body.style.backgroundImage = `url('${filePath}')`
-
 
             }
 
