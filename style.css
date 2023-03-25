@@ -41,7 +41,7 @@ body::before {
     flex-direction: column;
     color: white;
     position: relative;
-    width: 30vw;
+    width: 40vw;
     height: 700px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
