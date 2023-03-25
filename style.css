@@ -41,7 +41,7 @@ body::before {
     color: white;
     position: relative;
     width: 50vw;
-    height: 800px;
+    height: 850px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
@@ -52,10 +52,20 @@ body::before {
     overflow: hidden;
     transform: scale(1);
     transition: transform .5s, height .2s ease;
-    margin-top: 20px;
+    margin-top: 10px;
     user-select: none;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.400);
+}
+
+.main .width-img,
+.main .height-img {
+    text-align: center;
+    margin-bottom: 25px;
+    margin-right: 20px;
+    /* Adiciona margem à direita no primeiro elemento */
+    margin-left: 20px;
+    /* Adiciona margem à esquerda no segundo elemento */
 }
 
 h2 {
@@ -101,7 +111,7 @@ h2 {
 }
 
 .main .label {
-   
+
     position: relative;
     top: -20px;
     left: 40px;
@@ -128,9 +138,11 @@ h2 {
     transition: transform 1s, height 1s ease;
     transition: all 0.5s;
     display: inline-flex;
-    margin-right: 170px; /* Adiciona margem à direita no primeiro elemento */
-    margin-left: 190px; /* Adiciona margem à esquerda no segundo elemento */
-    
+    margin-right: 170px;
+    /* Adiciona margem à direita no primeiro elemento */
+    margin-left: 190px;
+    /* Adiciona margem à esquerda no segundo elemento */
+
 
 }
 
@@ -139,7 +151,7 @@ h2 {
     background: white;
     color: black;
     transform: scale(1.05);
-    
+
 }
 
 .main .sizeSVG,

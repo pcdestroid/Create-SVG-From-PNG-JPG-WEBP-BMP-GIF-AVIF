@@ -8,6 +8,10 @@ const urlData = document.querySelector('.urlData');
 const size = document.querySelector('.size');
 const sizeSVG = document.querySelector('.sizeSVG');
 const btnCopyLink = document.querySelector('.copyLink')
+const widthImg = document.querySelector('.width-img')
+const heightImg = document.querySelector('.height-img')
+
+let file;
 
 // Obtém o elemento de entrada de arquivo
 const inputFile = document.querySelector('.send');
@@ -16,7 +20,7 @@ const inputFile = document.querySelector('.send');
 inputFile.addEventListener('change', function (event) {
 
     // Obtém o arquivo selecionado
-    let file = event.target.files[0];
+    file = event.target.files[0];
 
     // Obter o tamanho do arquivo em bytes
     var fileSizeInBytes = file.size;
@@ -35,19 +39,52 @@ inputFile.addEventListener('change', function (event) {
     reader.readAsDataURL(file);
 });
 
+widthImg.addEventListener('change', function (event) {
+
+    // Obter o tamanho do arquivo em bytes
+    var fileSizeInBytes = file.size;
+    // Converter o tamanho do arquivo em kilobytes (KB)
+    var fileSizeInKB = fileSizeInBytes / 1024;
+    // Exibir o tamanho do arquivo
+    size.innerHTML = "Tamanho original: " + fileSizeInKB.toFixed(2) + " KB"
+    const reader = new FileReader();
+    reader.onload = function () {
+        // Chama a função createSVGFromJPG com o arquivo selecionado
+        createSVGFromJPG(reader.result);
+    };
+    reader.readAsDataURL(file);
+});
+
+
+
 function createSVGFromJPG(filePath) {
     btnCopyLink.innerHTML = 'Copy Link'
 
     // Cria um objeto Image
     const img = new Image();
+
+
+
+
     // Define o manipulador de eventos para quando a imagem for carregada
     img.onload = function () {
+
+        let iw = img.width;
+        let ih = img.height;
+        
+        heightImg.value = (img.height * widthImg.value) / img.width
+
+        if (widthImg.value * heightImg.value > 0) {
+            iw = widthImg.value;
+            ih = heightImg.value;
+        }
+
         // Cria um canvas para desenhar a imagem
         var canvas = document.createElement('canvas');
         var ctx = canvas.getContext('2d');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0);
+        canvas.width = iw;
+        canvas.height = ih;
+        ctx.drawImage(img, 0, 0, iw, ih);
         // Converte o canvas em um objeto Blob
         canvas.toBlob(function (blob) {
 
@@ -59,14 +96,14 @@ function createSVGFromJPG(filePath) {
             reader.onload = function () {
 
                 // Cria um elemento de imagem SVG
-                svgImage.setAttributeNS(null, "width", img.width);
-                svgImage.setAttributeNS(null, "height", img.height);
+                svgImage.setAttributeNS(null, "width", iw);
+                svgImage.setAttributeNS(null, "height", ih);
                 svgImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', reader.result);
 
                 // Adiciona  a imagem ao SVG
-                svg.setAttributeNS(null, "viewBox", `0 0 ${img.width} ${img.height}`);
-                svg.setAttributeNS(null, "width", img.width);
-                svg.setAttributeNS(null, "height", img.height);
+                svg.setAttributeNS(null, "viewBox", `0 0 ${iw} ${ih}`);
+                svg.setAttributeNS(null, "width", iw);
+                svg.setAttributeNS(null, "height", ih);
                 svg.appendChild(svgImage);
 
                 // Adiciona o elemento SVG ao documento
@@ -133,7 +170,7 @@ main.addEventListener('drop', e => {
 
 
         // Obtém o arquivo selecionado
-        let file = inputFile.files[0];
+        file = inputFile.files[0];
 
         // Obter o tamanho do arquivo em bytes
         var fileSizeInBytes = file.size;
