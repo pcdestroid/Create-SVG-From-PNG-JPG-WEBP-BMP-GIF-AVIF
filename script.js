@@ -55,16 +55,11 @@ widthImg.addEventListener('change', function (event) {
     reader.readAsDataURL(file);
 });
 
-
-
 function createSVGFromJPG(filePath) {
     btnCopyLink.innerHTML = 'Copy Link'
 
     // Cria um objeto Image
     const img = new Image();
-
-
-
 
     // Define o manipulador de eventos para quando a imagem for carregada
     img.onload = function () {

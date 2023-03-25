@@ -10,6 +10,7 @@ body {
     color: white;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     min-height: 100vh;
     background-color: rgb(0, 8, 8);
@@ -39,17 +40,16 @@ body::before {
     width: 94vw;
     max-width: 900px;
     height: 87vh;
-    max-height: 800px;
+    max-height: 600px;
+    min-height: 700px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
-    backdrop-filter: blur(55px);
+    backdrop-filter: blur(5px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .2);
     display: flex;
     align-items: center;
-    overflow: hidden;
     transform: scale(1);
-    transition: transform .5s, height .2s ease;
     user-select: none;
     background-color: rgba(0, 0, 0, 0.300);
     align-items: center;
@@ -59,12 +59,11 @@ body::before {
 .main .width-img,
 .main .height-img {
     display: flex;
-    margin-top: 5px;
     text-align: center;
 }
 
 .sizeImg{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .main .send {
@@ -87,9 +86,11 @@ body::before {
 .main .urlData {
     display: flex;
     width: 38vw;
-    max-width: 400px;
-    height: 40vh;
-    max-height: 400px;
+    max-width: 350px;
+    min-width: 230px;
+    height: 30vh;
+    max-height: 350px;
+    min-height: 350px;
     margin: 10px;
     background-color: rgba(0, 0, 0, 0.500);
     border-radius: 15px;
@@ -108,9 +109,9 @@ body::before {
     margin-top: 10px;
 }
 
-.main .download,
-.main .copyLink {
-    background: transparent;
+.download,
+.copyLink {
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 10px;
     border: 2px solid white;
@@ -118,13 +119,13 @@ body::before {
     cursor: pointer;
     transform: scale(1);
     transition: transform 1s, height 1s ease;
-    transition: all 0.5s;
     margin: 10px;
     display: inline-flex;
 }
 
-.main .download:hover,
-.main .copyLink:hover {
+.download:hover,
+.copyLink:hover {
+    z-index: 9999;
     background: white;
     color: black;
     transform: scale(1.05);
@@ -133,31 +134,21 @@ body::before {
 
 .main .sizeSVG,
 .main .size {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .drop-area {
     margin: 20px;
     border: 2px dashed #ccc;
-    padding: 10px;
+    padding: 10px 100px 10px 100px;
     border-radius: 15px;
     text-align: center;
 }
 
-footer {
-    color: white;
+.buttons{
     position: fixed;
-    bottom: 0;
-    font-size: 0.8em;
-    z-index: 99;
-    padding: 10px 0 10px 0;
-    backdrop-filter: blur(5px);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    border: 2px solid rgba(255, 255, 255, .3);
-    user-select: none;
-
+    z-index: 999;
+    bottom: 10px;
 }
 
 input[type="file"] {
@@ -182,8 +173,6 @@ label.upload-button {
     border-radius: 5px;
     cursor: pointer;
     transform: scale(1);
-    transition: transform 1s, height 1s ease;
-    transition: all 0.5s;
     display: inline-block;
 }
 
